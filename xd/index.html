@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor Simple</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .item { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; }
+    input { padding: 5px; width: 100px; }
+    .resultado { font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Conversor</h2>
+
+  <div class="item">
+    <label>Flores doradas (250 wc):</label>
+    <input type="number" id="flores" placeholder="Cantidad">
+    <div class="resultado" id="resflores"></div>
+  </div>
+
+  <div class="item">
+    <label>bles (250 wc):</label>
+    <input type="number" id="bles" placeholder="Cantidad">
+    <div class="resultado" id="resbles"></div>
+  </div>
+
+  <div class="item">
+    <label>soul (200 wc):</label>
+    <input type="number" id="soul" placeholder="Cantidad">
+    <div class="resultado" id="ressoul"></div>
+  </div>
+
+  <script>
+    // valores fijos
+    const precios = {
+      flores: 250,
+      bles: 250,
+      soul: 200,
+    };
+
+    // inputs
+    const inputflores = document.getElementById("flores");
+    const inputbles = document.getElementById("bles");
+    const inputsoul = document.getElementById("soul");
+
+    // resultados
+    const resflores = document.getElementById("resflores");
+    const resbles = document.getElementById("resbles");
+    const ressoul = document.getElementById("ressoul");
+    // funciones de cálculo
+    inputflores.addEventListener("input", () => {
+      let cantidad = inputflores.value || 0;
+      resflores.textContent = "Total: $" + (cantidad * precios.flores);
+    });
+
+    inputbles.addEventListener("input", () => {
+      let cantidad = inputbles.value || 0;
+      resbles.textContent = "Total: $" + (cantidad * precios.bles);
+    });
+    inputsoul.addEventListener("input", () => {
+      let cantidad = inputbles.value || 0;
+      ressoul.textContent = "Total: $" + (cantidad * precios.soul);
+    });
+  </script>
+  
+</body>
+</html>
